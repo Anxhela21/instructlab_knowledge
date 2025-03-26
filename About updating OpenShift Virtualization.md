@@ -1,0 +1,25 @@
+## 6.1. About updating OpenShift Virtualization
+
+
+
+
+- Operator Lifecycle Manager (OLM) manages the lifecycle of the OpenShift Virtualization Operator. The Marketplace Operator, which is deployed during OpenShift Container Platform installation, makes external Operators available to your cluster.
+- OLM provides z-stream and minor version updates for OpenShift Virtualization. Minor version updates become available when you update OpenShift Container Platform to the next minor version. You cannot update OpenShift Virtualization to the next minor version without first updating OpenShift Container Platform.
+- OpenShift Virtualization subscriptions use a single update channel that is named **stable** . The **stable** channel ensures that your OpenShift Virtualization and OpenShift Container Platform versions are compatible.
+- If your subscription’s approval strategy is set to **Automatic** , the update process starts as soon as a new version of the Operator is available in the **stable** channel. It is highly recommended to use the **Automatic** approval strategy to maintain a supportable environment. Each minor version of OpenShift Virtualization is only supported if you run the corresponding OpenShift Container Platform version. For example, you must run OpenShift Virtualization 4.11 on OpenShift Container Platform 4.11.
+    
+    
+    - Though it is possible to select the **Manual** approval strategy, this is not recommended because it risks the supportability and functionality of your cluster. With the **Manual** approval strategy, you must manually approve every pending update. If OpenShift Container Platform and OpenShift Virtualization updates are out of sync, your cluster becomes unsupported.
+    
+- The amount of time an update takes to complete depends on your network connection. Most automatic updates complete within fifteen minutes.
+- Updating OpenShift Virtualization does not interrupt network connections.
+- Data volumes and their associated persistent volume claims are preserved during update.
+
+
+Important
+If you have virtual machines running that use hostpath provisioner storage, they cannot be live migrated and might block an OpenShift Container Platform cluster update.
+
+As a workaround, you can reconfigure the virtual machines so that they can be powered off automatically during a cluster update. Remove the `evictionStrategy: LiveMigrate` field and set the `runStrategy` field to `Always` .
+
+
+

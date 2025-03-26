@@ -34,17 +34,3 @@ For more information about the support scope of Red Hat Technology Preview featu
 
 
 
-### 1.1.1. OpenShift Virtualization supported cluster version
-
-
-
-
-OpenShift Virtualization 4.11 is supported for use on OpenShift Container Platform 4.11 clusters. To use the latest z-stream release of OpenShift Virtualization, you must first upgrade to the latest version of OpenShift Container Platform.
-
-# Chapter 2. OpenShift Virtualization architecture
-
-
-
-
-Learn about OpenShift Virtualization architecture.
-
